@@ -1,7 +1,7 @@
 import streamlit as st
 #Spotify imports
 import spotipy
-from spotipy.oauth2 import SpotifyClientCredentials
+from spotipy.oauth2 import SpotifyClientCredentials, SpotifyOauthError
 from spotipy.client import SpotifyException
 
 #Imports for visualizations
@@ -22,7 +22,7 @@ from io import BytesIO
 
 
 #Credentials for the Spotify API
-client = "081325a37839423fbe05b84de04ea7df"
+client = "081325a37839423fbe05b84de04ea7d"#f"
 secret = "ea97778035e449cfaeb4d2290f1ebbba"
 username = "mt.prause"
 client_credentials_manager = SpotifyClientCredentials(client_id=client, client_secret=secret)
@@ -592,6 +592,8 @@ def main():
                 st.markdown("401: Unauthorized request.")
             else:
                 st.markdown("An error occurred:", e)
+        except SpotifyOauthError as e:
+            st.markdown("A Spotify Authentication error occurred (SpotifyOauthError). Please make sure to use the correct credentials.")
 
 
 if __name__ == "__main__":

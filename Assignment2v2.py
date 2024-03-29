@@ -22,7 +22,7 @@ from io import BytesIO
 
 
 #Credentials for the Spotify API
-client = "081325a37839423fbe05b84de04ea7d"#f"
+client = "081325a37839423fbe05b84de04ea7df"
 secret = "ea97778035e449cfaeb4d2290f1ebbba"
 username = "mt.prause"
 client_credentials_manager = SpotifyClientCredentials(client_id=client, client_secret=secret)
